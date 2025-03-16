@@ -59,7 +59,7 @@ const FlippingCards = () => {
 
   useEffect(() => {
     alert(`hi! you have ${totalChances} chances`);
-  }, []);
+  });
 
   useEffect(() => {
     if (cardsGroupIndex.length === cardArr.length && chances < totalChances) {

@@ -5,6 +5,7 @@ import NewsTopics from "../components/NewsTopics";
 import NewsDetails from "../components/NewsDetails";
 import CustomLink from "../components/CustomLink";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 
 const SingleNewsPage = () => {
   const { id } = useParams();
@@ -47,7 +48,7 @@ const SingleNewsPage = () => {
       </div>
 
       {currentNews?.media?.[0]?.["media-metadata"]?.[2]?.url ? (
-        <img
+        <Image
           className="w-full max-h-96 object-cover rounded-lg object-top shadow-md"
           src={currentNews?.media?.[0]?.["media-metadata"]?.[2]?.url}
           alt={currentNews.media[0]?.copyright}

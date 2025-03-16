@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const GridSquare = ({ square, handleClick, index }) => {
+const GridSquare = React.memo(({ square, handleClick, index }) => {
   return (
     <div
       className="w-[100px] h-[100px] cursor-pointer"
@@ -11,6 +11,6 @@ const GridSquare = ({ square, handleClick, index }) => {
       onClick={() => handleClick(index)}
     ></div>
   );
-};
+});
 
 export default GridSquare;

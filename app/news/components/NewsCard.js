@@ -7,7 +7,7 @@ const NewsCard = ({ singleNews }) => {
     <Link href={`/news/${singleNews?.id}`}>
       <div className="max-w-[400px] min-h-[430px] bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700">
         {singleNews?.media?.[0]?.["media-metadata"]?.[2]?.url ? (
-          <Image
+          <img
             className="rounded-t-lg object-cover object-top h-[200px] w-full"
             src={singleNews?.media?.[0]?.["media-metadata"]?.[2]?.url}
             alt={singleNews?.media?.[0]?.copyright || "News Image"}

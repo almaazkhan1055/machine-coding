@@ -48,7 +48,7 @@ const SingleNewsPage = () => {
       </div>
 
       {currentNews?.media?.[0]?.["media-metadata"]?.[2]?.url ? (
-        <Image
+        <img
           className="w-full max-h-96 object-cover rounded-lg object-top shadow-md"
           src={currentNews?.media?.[0]?.["media-metadata"]?.[2]?.url}
           alt={currentNews.media[0]?.copyright}

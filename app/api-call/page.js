@@ -5,7 +5,6 @@ import Post from "./components/post";
 
 const ApiCall = () => {
   const [usersData, setUsersData] = useState([]);
-  console.log("usersData", usersData);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")

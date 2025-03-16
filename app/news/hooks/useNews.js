@@ -9,7 +9,6 @@ const useNews = (period = 1) => {
   useEffect(() => {
     setLoading(true);
     setError(null);
-    console.log(process.env.NEXT_PUBLIC_NYT_API_KEY);
 
     fetch(
       `https://api.nytimes.com/svc/mostpopular/v2/viewed/${period}.json?api-key=${process.env.NEXT_PUBLIC_NYT_API_KEY}`

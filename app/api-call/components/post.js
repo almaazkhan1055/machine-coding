@@ -1,7 +1,6 @@
 import React from "react";
 
 const Post = ({ data }) => {
-  console.log(data);
 
   return (
     <ul>

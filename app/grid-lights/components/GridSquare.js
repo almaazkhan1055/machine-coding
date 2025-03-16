@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 
-const GridSquare = ({ isOpen, handleClick, index }) => {
+const GridSquare = ({ square, handleClick, index }) => {
   return (
     <div
-      className="w-[100px] h-[100px] bg-gray-600 cursor-pointer"
+      className="w-[100px] h-[100px] cursor-pointer"
       style={{
-        background: isOpen ? "pink" : "#4a565",
+        background: square ? "pink" : "#4a5568",
       }}
       onClick={() => handleClick(index)}
     ></div>

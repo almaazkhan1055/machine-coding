@@ -1,65 +1,42 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import GridSquare from "./components/GridSquare";
 
 const GridLights = () => {
+  const [squares, setSquares] = useState([false, false, false, false]);
   const [flow, setFlow] = useState([]);
-  const [squares, setSquares] = useState([
-    {
-      isOpen: false,
-    },
-    {
-      isOpen: false,
-    },
-    {
-      isOpen: false,
-    },
-    {
-      isOpen: false,
-    },
-  ]);
 
-  const handleClick = (index) => {
+  const handleClick = useCallback((index) => {
+    setFlow((prev) => [...prev, index]);
     setSquares((prev) =>
-      prev.map((square, i) =>
-        i === index ? { ...square, isOpen: !square.isOpen } : square
-      )
+      prev.map((square, i) => (index === i ? true : square))
     );
-    if (flow.length <= squares.length - 1) setFlow([...flow, index]);
-  };
+  }, []);
 
   useEffect(() => {
-    let timer;
-    if (flow.length === squares.length) {
-      timer = setTimeout(() => {
-        [...flow].reverse().forEach((flownum) => {
-          console.log("flownum", flownum);
-          setSquares((prev) =>
-            prev.map((square, i) =>
-              i === flownum ? { ...square, isOpen: false } : square
-            )
-          );
+    if (flow.length === 0) return;
+    let timer = flow.map((flownum, index) =>
+      setTimeout(() => {
+        setSquares((squares) => {
+          return squares.map((square, i) => (flownum === i ? false : square));
         });
-      }, 1000);
-    }
-
-    return () => clearTimeout(timer);
+        setFlow((flow) => flow.filter((_, i) => i != index));
+      }, (index + 1) * 2000)
+    );
+    return () => timer.forEach(clearTimeout);
   }, [flow]);
-  console.log(squares);
 
   return (
     <div className="flex flex-col items-center justify-center p-10">
       <h1>Gird Lights</h1>
       <div className="grid grid-cols-2 gap-5">
-        {squares?.map((sqaure, index) => {
+        {squares.map((square, index) => {
           return (
             <GridSquare
-              bg={sqaure.bg}
-              isOpen={sqaure.isOpen}
               key={index}
-              index={index}
+              square={square}
               handleClick={handleClick}
+              index={index}
             />
           );
         })}

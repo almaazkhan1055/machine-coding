@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import AboutTask from "../AboutTask";
 
 const Stopwatch = () => {
   const [seconds, setSeconds] = useState(0);
@@ -22,7 +23,12 @@ const Stopwatch = () => {
   }, [seconds, stopwatchRunning]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-3xl gap-5">
+    <div className="flex flex-col items-center justify-center py-10 text-3xl gap-5">
+      <AboutTask
+        text={
+          "This task involves creating a Stopwatch component using React. The stopwatch keeps track of elapsed time in minutes and seconds, updating every second when running. The component includes a start/pause button, which starts and pause the stopwatch"
+        }
+      />
       <div>
         <h1 className="text-5xl">Stopwatch</h1>
       </div>

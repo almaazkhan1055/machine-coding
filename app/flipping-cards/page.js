@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import AboutTask from "../AboutTask";
 
 const FlippingCards = () => {
   const cardArr = ["A", "C", "D", "A", "B", "B", "C", "D"];
@@ -77,20 +78,27 @@ const FlippingCards = () => {
   }, [flippedCard]);
 
   return (
-    <div className="grid max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 grid-cols-4 place-items-center gap-10 p-10 font-semibold">
-      {cardArr.map((card, index) => (
-        <div
-          className="border-2 border-white w-[200px] h-[300px] flex items-center justify-center cursor-pointer"
-          key={index}
-          onClick={() => handleCardFlip(index)}
-        >
-          {cardObj[index]?.isOpen ? (
-            card.toUpperCase()
-          ) : (
-            <span>click to reveal</span>
-          )}
-        </div>
-      ))}
+    <div className="flex flex-col p-10 items-center justify-center">
+      <AboutTask
+        text={
+          "This task involves creating a Flipping Cards game using React, where players match pairs of cards within a limited number of chances. The game consists of an array of cards, each with a letter, and the player can flip two cards at a time. If the two flipped cards match, they remain open; otherwise, they flip back after a short delay."
+        }
+      />
+      <div className="grid max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 grid-cols-4 place-items-center gap-10 p-10 font-semibold">
+        {cardArr.map((card, index) => (
+          <div
+            className="border-2 border-white w-[200px] h-[300px] flex items-center justify-center cursor-pointer"
+            key={index}
+            onClick={() => handleCardFlip(index)}
+          >
+            {cardObj[index]?.isOpen ? (
+              card.toUpperCase()
+            ) : (
+              <span>click to reveal</span>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

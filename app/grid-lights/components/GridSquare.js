@@ -4,7 +4,7 @@ import React from "react";
 const GridSquare = ({ square, handleClick, index }) => {
   return (
     <div
-      className="w-[100px] h-[100px] cursor-pointer"
+      className="w-[150px] h-[150px] rounded-xl cursor-pointer"
       style={{
         background: square ? "pink" : "#4a5568",
       }}

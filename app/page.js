@@ -23,6 +23,10 @@ const Home = () => {
       title: "Grid-Lights",
       href: "/grid-lights",
     },
+    {
+      title: "Form-Data",
+      href: "/form-data",
+    },
   ];
   return (
     <div className="flex flex-col gap-10 py-10 justify-center items-center">
